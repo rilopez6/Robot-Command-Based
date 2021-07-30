@@ -15,6 +15,7 @@ public class Arm extends SubsystemBase {
   Spark leftUpperArm;
   Spark rightUpperArm;
   SpeedControllerGroup upperMotors;
+  SpeedControllerGroup allMotors;
   /** Creates a new Arm. */
   public Arm() {
     forearm = new Spark (Constants.FOREARM);  
@@ -25,10 +26,19 @@ public class Arm extends SubsystemBase {
     rightUpperArm.setInverted(false);
 
     upperMotors = new SpeedControllerGroup (leftUpperArm, rightUpperArm);
+    allMotors = new SpeedControllerGroup(leftUpperArm, rightUpperArm, forearm);
   }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+  }
+
+  public void unfold(double speed) {
+    allMotors.set(speed);
+  }
+
+  public void stop(){
+    allMotors.set(0);
   }
 }

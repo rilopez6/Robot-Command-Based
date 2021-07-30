@@ -7,17 +7,16 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
-import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Arm;
 
-public class AutoShoot extends CommandBase {
-  Shooter shooter;
+public class AutoUnfold extends CommandBase {
+  Arm arm;
   Timer timer;
   private boolean finish = false;
-
-  /** Creates a new AutoShoot. */
-  public AutoShoot(Shooter s) {
-    shooter = s;
-    addRequirements(shooter);
+  /** Creates a new Unfold. */
+  public AutoUnfold(Arm a) {
+    arm = a;
+    addRequirements(arm);
     timer = new Timer();
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -27,8 +26,8 @@ public class AutoShoot extends CommandBase {
   public void initialize() {
     timer.reset();
     timer.start();
-    while (timer.get() < Constants.AUTO_SHOOT_TIME){
-      shooter.shootBall(Constants.SHOOTER_SPEED);
+    while (timer.get() < Constants.UNFOLDING_TIME){
+      arm.unfold(Constants.UNFOLD_SPEED);
     }
     finish = true;
   }
@@ -40,7 +39,7 @@ public class AutoShoot extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    shooter.stop();
+    arm.stop();
   }
 
   // Returns true when the command should end.

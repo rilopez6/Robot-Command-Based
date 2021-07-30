@@ -53,4 +53,6 @@ public final class Constants {
     public static final int FOREARM = 0;
     public static final int LEFT_UPPER_ARM = 0;
     public static final int RIGHT_UPPER_ARM = 0;
+    public static final double UNFOLDING_TIME = 5; //5 SECONDS
+    public static final double UNFOLD_SPEED = 1; //Runs at 100% when button held.
 }
