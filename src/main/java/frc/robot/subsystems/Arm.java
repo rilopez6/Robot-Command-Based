@@ -5,7 +5,6 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -17,11 +16,14 @@ public class Arm extends SubsystemBase {
   SpeedControllerGroup upperMotors;
   SpeedControllerGroup allMotors;
   /** Creates a new Arm. */
+  
   public Arm() {
     forearm = new Spark (Constants.FOREARM);  
     forearm.setInverted(false);
+
     leftUpperArm = new Spark (Constants.LEFT_UPPER_ARM);  
     leftUpperArm.setInverted(false);
+
     rightUpperArm = new Spark (Constants.RIGHT_UPPER_ARM);  
     rightUpperArm.setInverted(false);
 
