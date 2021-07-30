@@ -13,7 +13,7 @@ public class AutoUnfold extends CommandBase {
   Arm arm;
   Timer timer;
   private boolean finish = false;
-  
+
   /** Creates a new Unfold. */
   public AutoUnfold(Arm a) {
     arm = a;
@@ -25,7 +25,7 @@ public class AutoUnfold extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    timer.reset();
+    timer.reset(); //Sets to 0
     timer.start();
     while (timer.get() < Constants.UNFOLDING_TIME){
       arm.unfold(Constants.ARM_SPEED);

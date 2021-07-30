@@ -11,11 +11,14 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.AutoShoot;
+import frc.robot.commands.AutoUnfold;
 import frc.robot.commands.DriveForwardTimed;
 import frc.robot.commands.DriveToDistance;
 import frc.robot.commands.DriveWithJoysticks;
 import frc.robot.commands.IntakeBall;
 import frc.robot.commands.ShootBall;
+import frc.robot.commands.Unfold;
+import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
@@ -39,6 +42,10 @@ public class RobotContainer {
 
   private final Intake intake;
   private final IntakeBall intakeBall;
+
+  private final Arm arm;
+  private final Unfold unfold;
+  private final AutoUnfold autoUnfold;
   
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -67,6 +74,14 @@ public class RobotContainer {
     intakeBall = new IntakeBall(intake);
     intakeBall.addRequirements(intake);
     intake.setDefaultCommand(intakeBall);
+
+    arm = new Arm();
+    unfold = new Unfold(arm);
+    unfold.addRequirements(arm);
+
+    autoUnfold = new AutoUnfold(arm);
+    autoUnfold.addRequirements(arm);
+
 
     //Initialize Camera
     //UsbCamera camera  = CameraServer.getInstance().startAutomaticCapture();
