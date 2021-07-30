@@ -50,9 +50,10 @@ public final class Constants {
     public static final double SETPOINT_FORWARD = 1.5; //1.5 Meters
 
     //--------------------------Arm------------------------//
-    public static final int FOREARM = 0;
-    public static final int LEFT_UPPER_ARM = 0;
-    public static final int RIGHT_UPPER_ARM = 0;
-    public static final double UNFOLDING_TIME = 5; //5 SECONDS
-    public static final double UNFOLD_SPEED = 1; //Runs at 100% when button held.
+    public static final int FOREARM = 5; //PWM
+    public static final int LEFT_UPPER_ARM = 6; //PWM
+    public static final int RIGHT_UPPER_ARM = 7; //PWM
+
+    public static final double UNFOLDING_TIME = 5.0; //5 SECONDS
+    public static final double ARM_SPEED = 1.0; //Runs at 100% when button held.
 }

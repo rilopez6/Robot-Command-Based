@@ -13,6 +13,7 @@ public class AutoUnfold extends CommandBase {
   Arm arm;
   Timer timer;
   private boolean finish = false;
+  
   /** Creates a new Unfold. */
   public AutoUnfold(Arm a) {
     arm = a;
@@ -27,7 +28,7 @@ public class AutoUnfold extends CommandBase {
     timer.reset();
     timer.start();
     while (timer.get() < Constants.UNFOLDING_TIME){
-      arm.unfold(Constants.UNFOLD_SPEED);
+      arm.unfold(Constants.ARM_SPEED);
     }
     finish = true;
   }
