@@ -4,8 +4,8 @@
 
 package frc.robot;
 
-import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.cameraserver.CameraServer;
+//import edu.wpi.cscore.UsbCamera;
+//import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -35,6 +35,7 @@ public class RobotContainer {
   private final DriveForwardTimed driveForwardTimed;
   private final DriveToDistance driveToDistance;
   public static XboxController driverJoystick;
+  public static XboxController unfoldButton;
 
   private final Shooter shooter;
   private final ShootBall shootBall;
@@ -81,6 +82,8 @@ public class RobotContainer {
 
     autoUnfold = new AutoUnfold(arm);
     autoUnfold.addRequirements(arm);
+    unfoldButton = new XboxController(Constants.BUTTON_NUMBER);
+   // unfoldButton = new XboxController(Constants.JOYSTICK_NUMBER);
 
 
     //Initialize Camera
@@ -100,6 +103,9 @@ public class RobotContainer {
   private void configureButtonBindings() {
     JoystickButton shootButton = new JoystickButton(driverJoystick, XboxController.Button.kBumperRight.value);
     shootButton.whileHeld(new ShootBall(shooter));
+
+    JoystickButton unfolding = new JoystickButton (unfoldButton, XboxController.Button.kA.value);
+    unfolding.whileHeld(new Unfold(arm));
   }
 
   /**
