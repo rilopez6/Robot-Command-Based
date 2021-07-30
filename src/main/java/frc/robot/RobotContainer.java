@@ -69,8 +69,8 @@ public class RobotContainer {
     intake.setDefaultCommand(intakeBall);
 
     //Initialize Camera
-    UsbCamera camera  = CameraServer.getInstance().startAutomaticCapture();
-    camera.setResolution(Constants.CAMERA_RES_X, Constants.CAMERA_RES_Y);
+    //UsbCamera camera  = CameraServer.getInstance().startAutomaticCapture();
+    //camera.setResolution(Constants.CAMERA_RES_X, Constants.CAMERA_RES_Y);
 
     // Configure the button bindings
     configureButtonBindings();
