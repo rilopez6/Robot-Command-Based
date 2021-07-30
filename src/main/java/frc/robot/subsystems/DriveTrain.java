@@ -37,7 +37,6 @@ public class DriveTrain extends SubsystemBase {
     rightBack = new Spark (Constants.RIGHT_BACK);
     rightBack.setInverted(true);
 
-    //include for center wheels
     leftMotors = new SpeedControllerGroup (leftFront, leftBack);
     rightMotors = new SpeedControllerGroup (rightFront, rightBack);
     drive = new DifferentialDrive (leftMotors, rightMotors);

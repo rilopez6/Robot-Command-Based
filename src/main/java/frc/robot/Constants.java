@@ -48,4 +48,9 @@ public final class Constants {
     //--------------------Proximity Sensor------------------//
     public static final int RANGE_FINDER = 0; //PWM | Analog Input
     public static final double SETPOINT_FORWARD = 1.5; //1.5 Meters
+
+    //--------------------------Arm------------------------//
+    public static final int FOREARM = 0;
+    public static final int LEFT_UPPER_ARM = 0;
+    public static final int RIGHT_UPPER_ARM = 0;
 }
