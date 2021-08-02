@@ -82,8 +82,8 @@ public class RobotContainer {
 
     autoUnfold = new AutoUnfold(arm);
     autoUnfold.addRequirements(arm);
-    unfoldButton = new XboxController(Constants.BUTTON_NUMBER);
-   // unfoldButton = new XboxController(Constants.JOYSTICK_NUMBER);
+    
+    unfoldButton = new XboxController(Constants.JOYSTICK_NUMBER);
 
 
     //Initialize Camera
@@ -104,7 +104,7 @@ public class RobotContainer {
     JoystickButton shootButton = new JoystickButton(driverJoystick, XboxController.Button.kBumperRight.value);
     shootButton.whileHeld(new ShootBall(shooter));
 
-    JoystickButton unfolding = new JoystickButton (unfoldButton, XboxController.Button.kA.value);
+    JoystickButton unfolding = new JoystickButton (unfoldButton, XboxController.Button.kB.value);
     unfolding.whileHeld(new Unfold(arm));
   }
 

@@ -56,5 +56,4 @@ public final class Constants {
 
     public static final double UNFOLDING_TIME = 5.0; //5 SECONDS
     public static final double ARM_SPEED = 1.0; //Runs at 100% speed for motors
-    public static final int BUTTON_NUMBER = 0; //Joystick number ins simulator. Number represents remote.
 }
