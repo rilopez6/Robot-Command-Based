@@ -15,6 +15,7 @@ import frc.robot.commands.AutoUnfold;
 import frc.robot.commands.DriveForwardTimed;
 import frc.robot.commands.DriveToDistance;
 import frc.robot.commands.DriveWithJoysticks;
+import frc.robot.commands.ForearmUnfold;
 import frc.robot.commands.IntakeBall;
 import frc.robot.commands.ShootBall;
 import frc.robot.commands.Unfold;
@@ -36,6 +37,7 @@ public class RobotContainer {
   private final DriveToDistance driveToDistance;
   public static XboxController driverJoystick;
   public static XboxController unfoldButton;
+  public static XboxController forearmUnfolding;
 
   private final Shooter shooter;
   private final ShootBall shootBall;
@@ -84,6 +86,7 @@ public class RobotContainer {
     autoUnfold.addRequirements(arm);
     
     unfoldButton = new XboxController(Constants.JOYSTICK_NUMBER);
+    forearmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
 
 
     //Initialize Camera
@@ -104,8 +107,11 @@ public class RobotContainer {
     JoystickButton shootButton = new JoystickButton(driverJoystick, XboxController.Button.kBumperLeft.value);
     shootButton.whileHeld(new ShootBall(shooter));
 
-    JoystickButton unfolding = new JoystickButton (unfoldButton, XboxController.Button.kB.value);
+    JoystickButton unfolding = new JoystickButton (unfoldButton, XboxController.Button.kA.value);
     unfolding.whileHeld(new Unfold(arm));
+
+    JoystickButton faUnfold = new JoystickButton (forearmUnfolding, XboxController.Button.kB.value);
+    faUnfold.whileHeld(new ForearmUnfold(arm));
   }
 
   /**

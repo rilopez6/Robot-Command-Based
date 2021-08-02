@@ -40,6 +40,14 @@ public class Arm extends SubsystemBase {
       allMotors.set(speed);
   }
 
+  public void foreArm_Unfold(double speed){
+    forearm.set(speed);
+  }
+
+  public void upperMotors_Unfold(double speed){
+    upperMotors.set(speed);
+  }
+
   public void stop(){
     allMotors.set(0);
   }
