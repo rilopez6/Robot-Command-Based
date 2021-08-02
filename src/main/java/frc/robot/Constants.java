@@ -31,12 +31,13 @@ public final class Constants {
     public static final int JOYSTICK_NUMBER = 0; //Controller number | USB Entry | 
 
     //------------------------Shooter------------------------//
-    public static final int SHOOTER = 4; //PWM
+    public static final int LEFT_SHOOTER = 4; //PWM
+    public static final int RIGHT_SHOOTER = 5;
     public static final double SHOOTER_SPEED = 0.5; //Runs at 50% when button held
 
     //--------------------Elevator/Intake--------------------//
     //-------------------Works with Shooter------------------//
-    public static final int INTAKE = 5; //PWM
+    public static final int INTAKE = 6; //PWM
     public static final int RIGHT_TRIGGER = 3;
     public static final double INTAKE_SPEED = 0.7;
 
@@ -50,9 +51,9 @@ public final class Constants {
     public static final double SETPOINT_FORWARD = 1.5; //1.5 Meters
 
     //--------------------------Arm------------------------//
-    public static final int FOREARM = 6; //PWM
-    public static final int LEFT_UPPER_ARM = 7; //PWM
-    public static final int RIGHT_UPPER_ARM = 8; //PWM
+    public static final int FOREARM = 7; //PWM
+    public static final int LEFT_UPPER_ARM = 8; //PWM
+    public static final int RIGHT_UPPER_ARM = 9; //PWM
 
     public static final double UNFOLDING_TIME = 5.0; //5 SECONDS
     public static final double ARM_SPEED = 1.0; //Runs at 100% speed for motors

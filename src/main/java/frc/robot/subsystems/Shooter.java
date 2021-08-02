@@ -5,14 +5,20 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Shooter extends SubsystemBase {
-  Spark shooter;
+  SpeedControllerGroup shooter;
+  Spark left;
+  Spark right;
+   
   /** Creates a new Shooter. */
   public Shooter() {
-    shooter = new Spark(Constants.SHOOTER);
+    left = new Spark (Constants.LEFT_SHOOTER);
+    right = new Spark(Constants.RIGHT_SHOOTER);
+    shooter = new SpeedControllerGroup(left, right);
   }
 
   @Override
