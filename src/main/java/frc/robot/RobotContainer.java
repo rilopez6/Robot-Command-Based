@@ -101,7 +101,7 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    JoystickButton shootButton = new JoystickButton(driverJoystick, XboxController.Button.kBumperRight.value);
+    JoystickButton shootButton = new JoystickButton(driverJoystick, XboxController.Button.kBumperLeft.value);
     shootButton.whileHeld(new ShootBall(shooter));
 
     JoystickButton unfolding = new JoystickButton (unfoldButton, XboxController.Button.kB.value);
