@@ -37,7 +37,7 @@ public class Arm extends SubsystemBase {
   }
 
   public void unfold(double speed) {
-    allMotors.set(speed);
+      allMotors.set(speed);
   }
 
   public void stop(){

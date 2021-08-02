@@ -32,7 +32,7 @@ public final class Constants {
 
     //------------------------Shooter------------------------//
     public static final int LEFT_SHOOTER = 4; //PWM
-    public static final int RIGHT_SHOOTER = 5;
+    public static final int RIGHT_SHOOTER = 5; //PWM
     public static final double SHOOTER_SPEED = 0.5; //Runs at 50% when button held
 
     //--------------------Elevator/Intake--------------------//
