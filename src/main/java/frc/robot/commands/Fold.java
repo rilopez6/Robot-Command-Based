@@ -5,6 +5,8 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
+import frc.robot.subsystems.Arm;
 
 public class Fold extends CommandBase {
   Arm arm;
@@ -21,7 +23,9 @@ public class Fold extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    arm.fold(Constants.ARM_SPEED);
+  }
 
   // Called once the command ends or is interrupted.
   @Override
