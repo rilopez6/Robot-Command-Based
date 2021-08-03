@@ -36,17 +36,31 @@ public class Arm extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
+  //unfolds the whole robot at the same time
+  //Needs update. First activate the upperarm then the forearm.
+  //To not get the shooter, forearm, and screen Damaged. 
   public void unfold(double speed) {
       allMotors.set(speed);
   }
 
+  //Unfolds forearm only
   public void foreArm_Unfold(double speed){
     forearm.set(speed);
   }
 
+  //unfolds upperarm only
   public void upperMotors_Unfold(double speed){
     upperMotors.set(speed);
   }
+
+  //Folds Everything
+  public void fold(double speed){;}
+
+  //Folds forearm only
+  public void foldsForearm(double speed){;}
+
+  //folds upperarm only
+  public void foldsUpperArm(double speed){;}
 
   public void stop(){
     allMotors.set(0);
