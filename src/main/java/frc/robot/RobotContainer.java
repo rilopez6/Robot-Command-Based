@@ -43,6 +43,9 @@ public class RobotContainer {
   public static XboxController unfoldButton;
   public static XboxController forearmUnfolding;
   public static XboxController upperArmUnfolding;
+  public static XboxController foldingButton;
+  public static XboxController foldingUpperArm;
+  public static XboxController foldingForearm;
 
   private final Shooter shooter;
   private final ShootBall shootBall;
@@ -60,8 +63,6 @@ public class RobotContainer {
   private final FoldsUpperArm foldsUpperArm;
   private final FoldsForearm foldsForearm;
   private final Fold fold;
-
-  private final 
   
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -114,15 +115,16 @@ public class RobotContainer {
 
     fold = new Fold(arm);
     fold.addRequirements(arm);
-    
+
     unfoldButton = new XboxController(Constants.JOYSTICK_NUMBER);
     forearmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
     upperArmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
 
     //Folding
-
-
-
+    foldingButton = new XboxController(Constants.JOYSTICK_NUMBER);
+    foldingUpperArm = new XboxController(Constants.JOYSTICK_NUMBER);
+    foldingForearm = new XboxController(Constants.JOYSTICK_NUMBER);
+    
     //Initialize Camera
     //UsbCamera camera  = CameraServer.getInstance().startAutomaticCapture();
     //camera.setResolution(Constants.CAMERA_RES_X, Constants.CAMERA_RES_Y);
@@ -153,6 +155,13 @@ public class RobotContainer {
     //Button to unfold upperArm
     JoystickButton uaUnfold = new JoystickButton (upperArmUnfolding, XboxController.Button.kBumperRight.value);
     uaUnfold.whileHeld(new UpperMotorsUnfolding(arm));
+
+    //Button to fold
+    //JoystickButton foldingB = new JoystickButton(foldingButton, XboxController.Button.kBack.value);
+    //foldingB.whileHeld(new Fold(arm));
+
+    JoystickButton upperArmFolding = new JoystickButton(foldingUpperArm, XboxController.Button.k.value);
+    upperArmFolding.whileHeld(new FoldsUpperArm(arm));
   }
 
   /**
