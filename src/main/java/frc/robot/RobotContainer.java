@@ -15,6 +15,9 @@ import frc.robot.commands.AutoUnfold;
 import frc.robot.commands.DriveForwardTimed;
 import frc.robot.commands.DriveToDistance;
 import frc.robot.commands.DriveWithJoysticks;
+import frc.robot.commands.Fold;
+import frc.robot.commands.FoldsForearm;
+import frc.robot.commands.FoldsUpperArm;
 import frc.robot.commands.ForearmUnfold;
 import frc.robot.commands.IntakeBall;
 import frc.robot.commands.ShootBall;
@@ -50,7 +53,15 @@ public class RobotContainer {
 
   private final Arm arm;
   private final Unfold unfold;
+  private final UpperMotorsUnfolding upperMotorsUnfolding;
+  private final ForearmUnfold forearmUnfold;
   private final AutoUnfold autoUnfold;
+
+  private final FoldsUpperArm foldsUpperArm;
+  private final FoldsForearm foldsForearm;
+  private final Fold fold;
+
+  private final 
   
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -81,15 +92,28 @@ public class RobotContainer {
     intake.setDefaultCommand(intakeBall);
 
     arm = new Arm();
+
+    //Unfolding
     unfold = new Unfold(arm);
     unfold.addRequirements(arm);
 
+    upperMotorsUnfolding = new UpperMotorsUnfolding(arm);
+    upperMotorsUnfolding.addRequirements(arm);
+
+    forearmUnfold = new ForearmUnfold(arm);
+    forearmUnfold.addRequirements(arm);
+
     autoUnfold = new AutoUnfold(arm);
     autoUnfold.addRequirements(arm);
+
+
     
     unfoldButton = new XboxController(Constants.JOYSTICK_NUMBER);
     forearmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
     upperArmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
+
+    //Folding
+
 
 
     //Initialize Camera
