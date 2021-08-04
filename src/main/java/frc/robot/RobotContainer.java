@@ -106,7 +106,14 @@ public class RobotContainer {
     autoUnfold = new AutoUnfold(arm);
     autoUnfold.addRequirements(arm);
 
+    foldsUpperArm = new FoldsUpperArm(arm);
+    foldsUpperArm.addRequirements(arm);
 
+    foldsForearm = new  FoldsForearm(arm);
+    foldsForearm.addRequirements(arm);
+
+    fold = new Fold(arm);
+    fold.addRequirements(arm);
     
     unfoldButton = new XboxController(Constants.JOYSTICK_NUMBER);
     forearmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
