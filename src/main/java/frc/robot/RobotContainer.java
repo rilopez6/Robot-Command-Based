@@ -169,6 +169,9 @@ public class RobotContainer {
 
     JoystickButton faFold = new JoystickButton (forearmFolding, XboxController.Button.kY.value);
     faFold.whileHeld(new ForeArm_Fold(arm));
+
+    JoystickButton uaFold = new JoystickButton (upperArmFolding, XboxController.Button.kStart.value);
+    uaFold.whileHeld(new UpperMotors_Fold(arm));
   }
 
   /**
