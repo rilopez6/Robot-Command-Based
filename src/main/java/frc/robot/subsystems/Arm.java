@@ -52,23 +52,6 @@ public class Arm extends SubsystemBase {
   public void upperMotors_Unfold(double speed){
     upperMotors.set(speed);
   }
- 
-  public void fold(double speed){
-    allMotors.setInverted(true);
-    allMotors.set(speed);
-  }
-
-  //Folds forearm only
-  public void foldsForearm(double speed){
-    forearm.setInverted(true);
-    forearm.set(speed);
-  }
-
-  //folds upperarm only
-  public void foldsUpperArm(double speed){
-    upperMotors.setInverted(true);
-    upperMotors.set(speed);
-  }
 
   public void stop(){
     allMotors.set(0);

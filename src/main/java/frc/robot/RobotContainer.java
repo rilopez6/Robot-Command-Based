@@ -15,9 +15,6 @@ import frc.robot.commands.AutoUnfold;
 import frc.robot.commands.DriveForwardTimed;
 import frc.robot.commands.DriveToDistance;
 import frc.robot.commands.DriveWithJoysticks;
-import frc.robot.commands.Fold;
-import frc.robot.commands.FoldsForearm;
-import frc.robot.commands.FoldsUpperArm;
 import frc.robot.commands.ForearmUnfold;
 import frc.robot.commands.IntakeBall;
 import frc.robot.commands.ShootBall;
@@ -59,10 +56,6 @@ public class RobotContainer {
   private final UpperMotorsUnfolding upperMotorsUnfolding;
   private final ForearmUnfold forearmUnfold;
   private final AutoUnfold autoUnfold;
-
-  private final FoldsUpperArm foldsUpperArm;
-  private final FoldsForearm foldsForearm;
-  private final Fold fold;
   
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -107,24 +100,11 @@ public class RobotContainer {
     autoUnfold = new AutoUnfold(arm);
     autoUnfold.addRequirements(arm);
 
-    foldsUpperArm = new FoldsUpperArm(arm);
-    foldsUpperArm.addRequirements(arm);
-
-    foldsForearm = new  FoldsForearm(arm);
-    foldsForearm.addRequirements(arm);
-
-    fold = new Fold(arm);
-    fold.addRequirements(arm);
 
     unfoldButton = new XboxController(Constants.JOYSTICK_NUMBER);
     forearmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
     upperArmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
 
-    //Folding
-    foldingButton = new XboxController(Constants.JOYSTICK_NUMBER);
-    foldingUpperArm = new XboxController(Constants.JOYSTICK_NUMBER);
-    foldingForearm = new XboxController(Constants.JOYSTICK_NUMBER);
-    
     //Initialize Camera
     //UsbCamera camera  = CameraServer.getInstance().startAutomaticCapture();
     //camera.setResolution(Constants.CAMERA_RES_X, Constants.CAMERA_RES_Y);
@@ -140,15 +120,18 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    //SHOOTER
+
     //Button to shoot ball
     JoystickButton shootButton = new JoystickButton(driverJoystick, XboxController.Button.kBumperLeft.value);
     shootButton.whileHeld(new ShootBall(shooter));
 
-    //button to unfold the entire arm
+    //UNFOLDING
+    //button to unfold the entire arm | Square
     JoystickButton unfolding = new JoystickButton (unfoldButton, XboxController.Button.kA.value);
     unfolding.whileHeld(new Unfold(arm));
 
-    //Button to unfold foreArm
+    //Button to unfold foreArm | X
     JoystickButton faUnfold = new JoystickButton (forearmUnfolding, XboxController.Button.kB.value);
     faUnfold.whileHeld(new ForearmUnfold(arm));
 
@@ -156,12 +139,6 @@ public class RobotContainer {
     JoystickButton uaUnfold = new JoystickButton (upperArmUnfolding, XboxController.Button.kBumperRight.value);
     uaUnfold.whileHeld(new UpperMotorsUnfolding(arm));
 
-    //Button to fold
-    //JoystickButton foldingB = new JoystickButton(foldingButton, XboxController.Button.kBack.value);
-    //foldingB.whileHeld(new Fold(arm));
-
-    JoystickButton upperArmFolding = new JoystickButton(foldingUpperArm, XboxController.Button.k.value);
-    upperArmFolding.whileHeld(new FoldsUpperArm(arm));
   }
 
   /**
