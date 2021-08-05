@@ -10,16 +10,20 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.AutoFold;
 import frc.robot.commands.AutoShoot;
 import frc.robot.commands.AutoUnfold;
 import frc.robot.commands.DriveForwardTimed;
 import frc.robot.commands.DriveToDistance;
 import frc.robot.commands.DriveWithJoysticks;
+import frc.robot.commands.Fold;
+import frc.robot.commands.ForeArm_Fold;
 import frc.robot.commands.ForearmUnfold;
 import frc.robot.commands.IntakeBall;
 import frc.robot.commands.ShootBall;
 import frc.robot.commands.Unfold;
 import frc.robot.commands.UpperMotorsUnfolding;
+import frc.robot.commands.UpperMotors_Fold;
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intake;
@@ -36,13 +40,12 @@ public class RobotContainer {
   private final DriveWithJoysticks driveWithJoystick;
   private final DriveForwardTimed driveForwardTimed;
   private final DriveToDistance driveToDistance;
+
   public static XboxController driverJoystick;
   public static XboxController unfoldButton;
   public static XboxController forearmUnfolding;
   public static XboxController upperArmUnfolding;
-  public static XboxController foldingButton;
-  public static XboxController foldingUpperArm;
-  public static XboxController foldingForearm;
+  
 
   private final Shooter shooter;
   private final ShootBall shootBall;
@@ -56,6 +59,15 @@ public class RobotContainer {
   private final UpperMotorsUnfolding upperMotorsUnfolding;
   private final ForearmUnfold forearmUnfold;
   private final AutoUnfold autoUnfold;
+
+  private final Fold fold;
+  private final ForeArm_Fold foreArm_Unfold;
+  private final UpperMotors_Fold upperMotors_Fold;
+  private final AutoFold autoFold;
+
+  private static XboxController foldButton;
+  private static XboxController forearmFolding;
+  private static XboxController upperArmFolding;
   
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -104,6 +116,8 @@ public class RobotContainer {
     unfoldButton = new XboxController(Constants.JOYSTICK_NUMBER);
     forearmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
     upperArmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
+
+    
 
     // Configure the button bindings
     configureButtonBindings();
