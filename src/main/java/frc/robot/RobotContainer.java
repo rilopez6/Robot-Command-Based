@@ -61,7 +61,7 @@ public class RobotContainer {
   private final AutoUnfold autoUnfold;
 
   private final Fold fold;
-  private final ForeArm_Fold foreArm_Unfold;
+  private final ForeArm_Fold foreArm_Fold;
   private final UpperMotors_Fold upperMotors_Fold;
   private final AutoFold autoFold;
 
@@ -117,7 +117,22 @@ public class RobotContainer {
     forearmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
     upperArmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
 
-    
+    fold = new Fold(arm);
+    fold.addRequirements(arm);
+
+    upperMotors_Fold = new UpperMotors_Fold(arm);
+    upperMotors_Fold.addRequirements(arm);
+
+    foreArm_Fold = new ForeArm_Fold(arm);
+    foreArm_Fold.addRequirements(arm);
+
+    autoFold = new AutoFold(arm);
+    autoFold.addRequirements(arm);
+
+    foldButton = new XboxController(Constants.JOYSTICK_NUMBER);
+    forearmFolding = new XboxController(Constants.JOYSTICK_NUMBER);
+    upperArmFolding = new XboxController(Constants.JOYSTICK_NUMBER);
+
 
     // Configure the button bindings
     configureButtonBindings();
