@@ -40,16 +40,19 @@ public class Arm extends SubsystemBase {
   //Needs update. First activate the upperarm then the forearm.
   //To not get the shooter, forearm, and screen Damaged. 
   public void unfold(double speed) {
-      allMotors.set(speed);
+    allMotors.setInverted(false);
+    allMotors.set(speed);
   }
 
   //Unfolds forearm only
   public void foreArm_Unfold(double speed){
+    forearm.setInverted(false);
     forearm.set(speed);
   }
 
   //unfolds upperarm only
   public void upperMotors_Unfold(double speed){
+    upperMotors.setInverted(false);
     upperMotors.set(speed);
   }
 

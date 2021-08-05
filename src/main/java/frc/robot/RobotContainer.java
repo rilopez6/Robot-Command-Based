@@ -164,6 +164,11 @@ public class RobotContainer {
     JoystickButton uaUnfold = new JoystickButton (upperArmUnfolding, XboxController.Button.kBumperRight.value);
     uaUnfold.whileHeld(new UpperMotorsUnfolding(arm));
 
+    JoystickButton folding = new JoystickButton (foldButton, XboxController.Button.kX.value);
+    folding.whileHeld(new Fold(arm));
+
+    JoystickButton faFold = new JoystickButton (forearmFolding, XboxController.Button.kY.value);
+    faFold.whileHeld(new ForeArm_Fold(arm));
   }
 
   /**
