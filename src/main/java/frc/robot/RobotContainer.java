@@ -105,10 +105,6 @@ public class RobotContainer {
     forearmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
     upperArmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
 
-    //Initialize Camera
-    //UsbCamera camera  = CameraServer.getInstance().startAutomaticCapture();
-    //camera.setResolution(Constants.CAMERA_RES_X, Constants.CAMERA_RES_Y);
-
     // Configure the button bindings
     configureButtonBindings();
   }
