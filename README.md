@@ -11,7 +11,7 @@ of Texas at El Paso. Robot cost was $6,000+ dollars and includes room for upgrad
 - Will include self driving using proximity sensors, Pixy2 Camera, and Encoder sensors. 
 
 ## Needed Materials
-- Playstation remote with bluetooth working preferably. Any other remote works well aswell.
+- Playstation remote with bluetooth working preferably. Any other remote works well as well.
 - Laptop/Tablet to run the code.
 
 ## How to Use
