@@ -57,4 +57,5 @@ public final class Constants {
 
     public static final double UNFOLDING_TIME = 5.0; //5 SECONDS
     public static final double ARM_SPEED = 1.0; //Runs at 100% speed for motors
+
 }

@@ -153,24 +153,14 @@ public class RobotContainer {
     
     //UNFOLDING
     //button to unfold the entire arm | Square
-
-    boolean unfolding_Pressed = false;
-    boolean folding_Pressed = false;
-
     JoystickButton unfolding = new JoystickButton (unfoldButton, XboxController.Button.kA.value);
-    if (!unfolding_Pressed){
-      unfolding.whenPressed(new AutoUnfold(arm));
-      unfolding_Pressed = true;
-      folding_Pressed = false;
-    }
+    unfolding.whenPressed(new AutoUnfold(arm));
+    
 
     //Button to fold the entire arm | CIRCLE
     JoystickButton folding = new JoystickButton (foldButton, XboxController.Button.kX.value);
-    if (!folding_Pressed){
-      folding.whenPressed(new AutoFold(arm));
-      folding_Pressed = true;
-      unfolding_Pressed = false;
-    }
+    folding.whenPressed(new AutoFold(arm));
+    
 
     //Button to unfold foreArm | X
     JoystickButton faUnfold = new JoystickButton (forearmUnfolding, XboxController.Button.kB.value);
