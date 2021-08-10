@@ -27,8 +27,15 @@ public class AutoFold extends CommandBase {
     timer.reset();
     timer.start();
     while (timer.get() < Constants.AUTO_SHOOT_TIME){
-      arm.fold(Constants.ARM_SPEED);
+      arm.foreArm_Fold(Constants.ARM_SPEED);
     }
+
+    timer.reset();
+    timer.start();
+    while (timer.get() < Constants.AUTO_SHOOT_TIME){
+      arm.upperMotors_Fold(Constants.ARM_SPEED);
+    }
+
     finish = true;
   }
 

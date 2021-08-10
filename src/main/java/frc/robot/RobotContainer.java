@@ -45,6 +45,9 @@ public class RobotContainer {
   public static XboxController unfoldButton;
   public static XboxController forearmUnfolding;
   public static XboxController upperArmUnfolding;
+  private static XboxController foldButton;
+  private static XboxController forearmFolding;
+  private static XboxController upperArmFolding;
   
 
   private final Shooter shooter;
@@ -64,10 +67,6 @@ public class RobotContainer {
   private final ForeArm_Fold foreArm_Fold;
   private final UpperMotors_Fold upperMotors_Fold;
   private final AutoFold autoFold;
-
-  private static XboxController foldButton;
-  private static XboxController forearmFolding;
-  private static XboxController upperArmFolding;
   
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -112,7 +111,6 @@ public class RobotContainer {
     autoUnfold = new AutoUnfold(arm);
     autoUnfold.addRequirements(arm);
 
-
     unfoldButton = new XboxController(Constants.JOYSTICK_NUMBER);
     forearmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
     upperArmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
@@ -151,6 +149,7 @@ public class RobotContainer {
     JoystickButton shootButton = new JoystickButton(driverJoystick, XboxController.Button.kBumperLeft.value);
     shootButton.whileHeld(new ShootBall(shooter));
 
+    
     //UNFOLDING
     //button to unfold the entire arm | Square
     JoystickButton unfolding = new JoystickButton (unfoldButton, XboxController.Button.kA.value);
