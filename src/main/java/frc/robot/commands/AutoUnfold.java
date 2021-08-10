@@ -28,7 +28,13 @@ public class AutoUnfold extends CommandBase {
     timer.reset(); //Sets to 0
     timer.start();
     while (timer.get() < Constants.UNFOLDING_TIME){
-      arm.unfold(Constants.ARM_SPEED);
+      arm.upperMotors_Unfold(Constants.ARM_SPEED);
+    }
+
+    timer.reset(); //Sets to 0
+    timer.start();
+    while (timer.get() < Constants.UNFOLDING_TIME){
+      arm.foreArm_Unfold(Constants.ARM_SPEED);
     }
     finish = true;
   }
