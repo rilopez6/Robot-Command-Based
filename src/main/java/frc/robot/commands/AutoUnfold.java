@@ -25,24 +25,25 @@ public class AutoUnfold extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    timer.reset(); //Sets to 0
+    timer.start();
+    while (timer.get() < Constants.UNFOLDING_TIME){
+      arm.upperMotors_Unfold(Constants.ARM_SPEED);
+    }
+    arm.stop();
+
+    timer.reset(); //Sets to 0
+    timer.start();
+    while (timer.get() < Constants.UNFOLDING_TIME){
+      arm.foreArm_Unfold(Constants.ARM_SPEED);
+    }
+
+    finish = true;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    // timer.reset(); //Sets to 0
-    // timer.start();
-    // while (timer.get() < Constants.UNFOLDING_TIME){
-    //   arm.upperMotors_Unfold(Constants.ARM_SPEED);
-    // }
-
-    // timer.reset(); //Sets to 0
-    // timer.start();
-    // while (timer.get() < Constants.UNFOLDING_TIME){
-    //   arm.foreArm_Unfold(Constants.ARM_SPEED);
-    // }
-
-    finish = true;
   }
 
   // Called once the command ends or is interrupted.

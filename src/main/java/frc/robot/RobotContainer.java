@@ -61,13 +61,13 @@ public class RobotContainer {
   private final Unfold unfold;
   private final UpperMotorsUnfolding upperMotorsUnfolding;
   private final ForearmUnfold forearmUnfold;
+
   private final AutoUnfold autoUnfold;
 
   private final Fold fold;
   private final ForeArm_Fold foreArm_Fold;
   private final UpperMotors_Fold upperMotors_Fold;
   private final AutoFold autoFold;
-  
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -102,14 +102,16 @@ public class RobotContainer {
     unfold = new Unfold(arm);
     unfold.addRequirements(arm);
 
+    autoUnfold = new AutoUnfold(arm);
+    autoUnfold.addRequirements(arm);
+
     upperMotorsUnfolding = new UpperMotorsUnfolding(arm);
     upperMotorsUnfolding.addRequirements(arm);
 
     forearmUnfold = new ForearmUnfold(arm);
     forearmUnfold.addRequirements(arm);
 
-    autoUnfold = new AutoUnfold(arm);
-    autoUnfold.addRequirements(arm);
+    
 
     unfoldButton = new XboxController(Constants.JOYSTICK_NUMBER);
     forearmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
@@ -118,14 +120,14 @@ public class RobotContainer {
     fold = new Fold(arm);
     fold.addRequirements(arm);
 
+    autoFold = new AutoFold(arm);
+    autoFold.addRequirements(arm);
+
     upperMotors_Fold = new UpperMotors_Fold(arm);
     upperMotors_Fold.addRequirements(arm);
 
     foreArm_Fold = new ForeArm_Fold(arm);
     foreArm_Fold.addRequirements(arm);
-
-    autoFold = new AutoFold(arm);
-    autoFold.addRequirements(arm);
 
     foldButton = new XboxController(Constants.JOYSTICK_NUMBER);
     forearmFolding = new XboxController(Constants.JOYSTICK_NUMBER);
@@ -145,44 +147,32 @@ public class RobotContainer {
   private void configureButtonBindings() {
     //SHOOTER
 
-    //Button to shoot ball
+    //Button to shoot ball | Left Upper Bumber
     JoystickButton shootButton = new JoystickButton(driverJoystick, XboxController.Button.kBumperLeft.value);
     shootButton.whileHeld(new ShootBall(shooter));
-
     
     //UNFOLDING
     //button to unfold the entire arm | Square
     JoystickButton unfolding = new JoystickButton (unfoldButton, XboxController.Button.kA.value);
+    unfolding.whenPressed(new AutoUnfold(arm));
 
-    boolean unfolding_Pressed = false;
-    boolean folding_Pressed = false;
-
-    // if (!unfolding_Pressed){
-    //   unfolding.whenPressed(new Unfold(arm));
-    //   unfolding_Pressed = true;
-    //   folding_Pressed = false;
-    // }
-
+    //Button to fold the entire arm | CIRCLE
     JoystickButton folding = new JoystickButton (foldButton, XboxController.Button.kX.value);
-
-    // if (!folding_Pressed){
-    //   folding.whenPressed(new Fold(arm));
-    //   folding_Pressed = true;
-    //   unfolding_Pressed = false;
-    // }
-
+    folding.whenPressed(new AutoFold(arm));
 
     //Button to unfold foreArm | X
     JoystickButton faUnfold = new JoystickButton (forearmUnfolding, XboxController.Button.kB.value);
     faUnfold.whileHeld(new ForearmUnfold(arm));
 
-    //Button to unfold upperArm
+    //Button to unfold upperArm | Right Upper Bumper Button
     JoystickButton uaUnfold = new JoystickButton (upperArmUnfolding, XboxController.Button.kBumperRight.value);
     uaUnfold.whileHeld(new UpperMotorsUnfolding(arm));
 
+    //Button to fold the Forearm | Triangle
     JoystickButton faFold = new JoystickButton (forearmFolding, XboxController.Button.kY.value);
     faFold.whileHeld(new ForeArm_Fold(arm));
 
+    //Button to fold upper arm | | Right Lower Bumper Button 
     JoystickButton uaFold = new JoystickButton (upperArmFolding, XboxController.Button.kStart.value);
     uaFold.whileHeld(new UpperMotors_Fold(arm));
   }
