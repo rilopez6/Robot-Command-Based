@@ -24,17 +24,17 @@ public class AutoFold extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    timer.reset();
-    timer.start();
-    while (timer.get() < Constants.AUTO_SHOOT_TIME){
-      arm.foreArm_Fold(Constants.ARM_SPEED);
-    }
+    // timer.reset();
+    // timer.start();
+    // while (timer.get() < Constants.AUTO_SHOOT_TIME){
+    //   arm.foreArm_Fold(Constants.ARM_SPEED);
+    // }
 
-    timer.reset();
-    timer.start();
-    while (timer.get() < Constants.AUTO_SHOOT_TIME){
-      arm.upperMotors_Fold(Constants.ARM_SPEED);
-    }
+    // timer.reset();
+    // timer.start();
+    // while (timer.get() < Constants.AUTO_SHOOT_TIME){
+    //   arm.upperMotors_Fold(Constants.ARM_SPEED);
+    // }
 
     finish = true;
   }

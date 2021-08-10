@@ -153,7 +153,24 @@ public class RobotContainer {
     //UNFOLDING
     //button to unfold the entire arm | Square
     JoystickButton unfolding = new JoystickButton (unfoldButton, XboxController.Button.kA.value);
-    unfolding.whileHeld(new Unfold(arm));
+
+    boolean unfolding_Pressed = false;
+    boolean folding_Pressed = false;
+
+    // if (!unfolding_Pressed){
+    //   unfolding.whenPressed(new Unfold(arm));
+    //   unfolding_Pressed = true;
+    //   folding_Pressed = false;
+    // }
+
+    JoystickButton folding = new JoystickButton (foldButton, XboxController.Button.kX.value);
+
+    // if (!folding_Pressed){
+    //   folding.whenPressed(new Fold(arm));
+    //   folding_Pressed = true;
+    //   unfolding_Pressed = false;
+    // }
+
 
     //Button to unfold foreArm | X
     JoystickButton faUnfold = new JoystickButton (forearmUnfolding, XboxController.Button.kB.value);
@@ -162,9 +179,6 @@ public class RobotContainer {
     //Button to unfold upperArm
     JoystickButton uaUnfold = new JoystickButton (upperArmUnfolding, XboxController.Button.kBumperRight.value);
     uaUnfold.whileHeld(new UpperMotorsUnfolding(arm));
-
-    JoystickButton folding = new JoystickButton (foldButton, XboxController.Button.kX.value);
-    folding.whileHeld(new Fold(arm));
 
     JoystickButton faFold = new JoystickButton (forearmFolding, XboxController.Button.kY.value);
     faFold.whileHeld(new ForeArm_Fold(arm));
