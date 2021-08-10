@@ -68,9 +68,6 @@ public class RobotContainer {
   private final ForeArm_Fold foreArm_Fold;
   private final UpperMotors_Fold upperMotors_Fold;
   private final AutoFold autoFold;
-
-  private final Boolean unfoldingPressed = false;
-  private final Boolean foldingPressed = false;
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -114,8 +111,6 @@ public class RobotContainer {
     forearmUnfold = new ForearmUnfold(arm);
     forearmUnfold.addRequirements(arm);
 
-    
-
     unfoldButton = new XboxController(Constants.JOYSTICK_NUMBER);
     forearmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
     upperArmUnfolding = new XboxController(Constants.JOYSTICK_NUMBER);
@@ -136,7 +131,6 @@ public class RobotContainer {
     forearmFolding = new XboxController(Constants.JOYSTICK_NUMBER);
     upperArmFolding = new XboxController(Constants.JOYSTICK_NUMBER);
 
-
     // Configure the button bindings
     configureButtonBindings();
   }
@@ -149,7 +143,6 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     //SHOOTER
-
     //Button to shoot ball | Left Upper Bumber
     JoystickButton shootButton = new JoystickButton(driverJoystick, XboxController.Button.kBumperLeft.value);
     shootButton.whileHeld(new ShootBall(shooter));
