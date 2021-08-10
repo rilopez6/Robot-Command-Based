@@ -68,6 +68,9 @@ public class RobotContainer {
   private final ForeArm_Fold foreArm_Fold;
   private final UpperMotors_Fold upperMotors_Fold;
   private final AutoFold autoFold;
+
+  private final Boolean unfoldingPressed = false;
+  private final Boolean foldingPressed = false;
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
