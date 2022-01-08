@@ -7,7 +7,6 @@ of Texas at El Paso. Robot cost was $6,000+ dollars and includes room for upgrad
 ## Features | Systems
 
 - Systems include DriveTrain, Elevator/Intake, Shooter, and an Arm.
-- Includes AI voice assistant exclusively but not limited to The University of Texas at El Paso information.
 - Will include self driving using proximity sensors, Pixy2 Camera, and Encoder sensors. 
 
 ## Needed Materials
@@ -28,10 +27,10 @@ Remote Control
 - RIGHT-LOWER-BUMPER-BUTTON: Moves Elevator
 
 # Code
-Code needs minor fixes. Depending on how the robot is build, the developer will need to adjust the direction of the motor and the speed of the motor if needed.
+Depending on how the robot is build, the developer will need to adjust the direction of the motor and the speed of the motor if needed.
 
-Direction: You can do this with the command "NAME_OF_MOTOR.setInverted(true);"
-Speed: You do this with going to Contants.java file
+You can do this with the command "NAME_OF_MOTOR.setInverted(true);"
+You can changed the speed of the motors by going into the Constants.java file and changing the value.
 ## How To Run Code
 
 This code need Visual Studio code, and WPILIB installed in your computer. 
