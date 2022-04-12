@@ -40,7 +40,3 @@ What you need to run the code is simply to click on the play button to compile t
 To run robot simulation, click on the the button with the three dots on the top right of the code, and click on "Build Robot Code." After this, press command-shift-p to open a search bar and type "WPILIB: SIMULATE ROBOT CODE ON DESKTOP."
 
 After this, a blue window will open that will run the simulation. 
-
-## Reference for code instructions
-Includes the following systems: Elevator, DriveTrain, Camera, and Shooter.
-https://www.youtube.com/watch?v=1794CxHQoQg&t=1s
